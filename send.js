@@ -3,7 +3,7 @@ const dayjs = require('dayjs');
 const { webhookUrl, sheetName } = require('./config');
 const { loadDuties } = require('./helpers/dutyLoader');
 
-const START_DATE = '2025-05-26';
+const START_DATE = '2025-05-12';
 
 function getDutyIndices() {
     const today = dayjs();
@@ -21,7 +21,7 @@ async function sendMessage() {
     const { sprintIndex, dailyIndex } = getDutyIndices();
 
     const duty = loadDuties('./duties.xlsx', sprintIndex, dailyIndex, sheetName);
-    const sprintNumber = sprintIndex + 1;
+    const sprintNumber = sprintIndex + 145;
 
     const message = {
         '@type': 'MessageCard',
