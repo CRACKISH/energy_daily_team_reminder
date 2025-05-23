@@ -3,7 +3,7 @@ const dayjs = require('dayjs');
 const { webhookUrl, sheetName } = require('./config');
 const { loadDuties } = require('./helpers/dutyLoader');
 
-const START_DATE = '2024-04-01';
+const START_DATE = '2025-05-26';
 
 function getDutyIndices() {
     const today = dayjs();
