@@ -18,7 +18,9 @@ function loadDuties(filePath, sprintIndex, dailyIndex) {
 	return {
 		fourthLine: getDuty(filePath, '4th Line', sprintIndex),
 		demo: getDuty(filePath, 'Demo', sprintIndex),
+		retro: getDuty(filePath, 'Retro', sprintIndex),
 		nightTests: getDuty(filePath, 'Night Tests', dailyIndex),
+		nextNightTests: getDuty(filePath, 'Night Tests', dailyIndex + 1),
 	};
 }
 
