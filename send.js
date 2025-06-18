@@ -1,10 +1,19 @@
 const axios = require('axios');
 const dayjs = require('dayjs');
-const { webhookUrl, sheetName } = require('./config');
+const { webhookUrl} = require('./config');
 const { loadDuties } = require('./helpers/dutyLoader');
 
 const START_SPRINT = 146;
 const START_DATE = '2025-05-26'; // start date of 146 sprint
+
+function isLastSprintDays() {
+	const today = dayjs();
+	const start = dayjs(START_DATE);
+	const daysPassed = today.diff(start, 'day');
+	const dayInSprint = ((daysPassed % 14) + 14) % 14;
+
+	return dayInSprint >= 10; // 10th day → second Thursday of the sprint
+}
 
 function getBusinessDaysBetween(start, end) {
 	let count = 0;
@@ -40,8 +49,9 @@ async function sendMessage() {
 	const { sprintIndex, dailyIndex } = getDutyIndices();
 
 	const filePath = './duties.xlsx';
-	const duty = loadDuties(filePath, sprintIndex, dailyIndex, sheetName);
+	const duty = loadDuties(filePath, sprintIndex, dailyIndex);
 	const sprintNumber = sprintIndex + START_SPRINT;
+	const showAdditionalMessages = isLastSprintDays();
 
 	const message = {
 		'@type': 'MessageCard',
@@ -54,10 +64,13 @@ async function sendMessage() {
 				facts: [
 					{ name: '🏃 Sprint', value: `#${sprintNumber}` },
 					{ name: '👨‍💻 4th Line Duty', value: duty.fourthLine },
+					...(showAdditionalMessages ? [{ name: '🧑‍💼 Next 4th Line Duty', value: duty.nextFourthLine }] : []),
 					{ name: '🔍 Nightly Tests Monitor', value: duty.nightTests },
 					{ name: '🔭 Next Nightly Tests Monitor', value: duty.nextNightTests },
 					{ name: '📺 Demo Responsible', value: duty.demo },
+					...(showAdditionalMessages ? [{ name: '📽️ Next Demo Responsible', value: duty.nextDemo }] : []),
 					{ name: '💬 Retro Responsible', value: duty.retro },
+					...(showAdditionalMessages ? [{ name: '📣 Next Retro Responsible', value: duty.nextRetro }] : []),
 				],
 				markdown: true,
 			},
