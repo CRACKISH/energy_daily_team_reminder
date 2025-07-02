@@ -1,7 +1,8 @@
 const axios = require('axios');
 const dayjs = require('dayjs');
-const { webhookUrl} = require('./config');
+const { webhookUrl } = require('./config');
 const { loadDuties } = require('./helpers/dutyLoader');
+const { buildMessage, MessageTypes } = require('./helpers/messageBuilder');
 
 const START_SPRINT = 146;
 const START_DATE = '2025-05-26'; // start date of 146 sprint
@@ -45,37 +46,13 @@ function getDutyIndices() {
 }
 
 async function sendMessage() {
-	const today = dayjs().format('dddd, MMMM D, YYYY');
 	const { sprintIndex, dailyIndex } = getDutyIndices();
 
 	const filePath = './duties.xlsx';
-	const duty = loadDuties(filePath, sprintIndex, dailyIndex);
+	const duties = loadDuties(filePath, sprintIndex, dailyIndex);
 	const sprintNumber = sprintIndex + START_SPRINT;
-	const showAdditionalMessages = isLastSprintDays();
-
-	const message = {
-		'@type': 'MessageCard',
-		'@context': 'https://schema.org/extensions',
-		summary: 'Daily Duty Reminder',
-		themeColor: '0076D7',
-		title: `📅 Daily Duty — ${today}`,
-		sections: [
-			{
-				facts: [
-					{ name: '🏃 Sprint', value: `#${sprintNumber}` },
-					{ name: '👨‍💻 4th Line Duty', value: duty.fourthLine },
-					...(showAdditionalMessages ? [{ name: '🧑‍💼 Next 4th Line Duty', value: duty.nextFourthLine }] : []),
-					{ name: '🔍 Nightly Tests Monitor', value: duty.nightTests },
-					{ name: '🔭 Next Nightly Tests Monitor', value: duty.nextNightTests },
-					{ name: '📺 Demo Responsible', value: duty.demo },
-					...(showAdditionalMessages ? [{ name: '📽️ Next Demo Responsible', value: duty.nextDemo }] : []),
-					{ name: '💬 Retro Responsible', value: duty.retro },
-					...(showAdditionalMessages ? [{ name: '📣 Next Retro Responsible', value: duty.nextRetro }] : []),
-				],
-				markdown: true,
-			},
-		],
-	};
+	const showNextDuties = isLastSprintDays();
+	const message = buildMessage(duties, sprintNumber, showNextDuties, MessageTypes.MessageCard);
 
 	try {
 		const response = await axios.post(webhookUrl, message);

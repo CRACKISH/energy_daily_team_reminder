@@ -17,14 +17,18 @@ function loadDuties(filePath, sprintIndex, dailyIndex) {
 	const workbook = XLSX.readFile(filePath);
 
 	return {
-		fourthLine: getDuty(workbook, '4th Line', sprintIndex),
-		nextFourthLine: getDuty(workbook, '4th Line', sprintIndex + 1),
-		demo: getDuty(workbook, 'Demo', sprintIndex),
-		nextDemo: getDuty(workbook, 'Demo', sprintIndex + 1),
-		retro: getDuty(workbook, 'Retro', sprintIndex),
-		nextRetro: getDuty(workbook, 'Retro', sprintIndex + 1),
-		nightTests: getDuty(workbook, 'Night Tests', dailyIndex),
-		nextNightTests: getDuty(workbook, 'Night Tests', dailyIndex + 1),
+		currentDuties: {
+			nightTests: { duty: getDuty(workbook, 'Night Tests', dailyIndex), icon: '🔍' },
+			fourthLine: { duty: getDuty(workbook, '4th Line', sprintIndex), icon: '👨‍💻' },
+			demo: { duty: getDuty(workbook, 'Demo', sprintIndex), icon: '📺' },
+			retro: { duty: getDuty(workbook, 'Retro', sprintIndex), icon: '💬' },
+		},
+		futureDuties: {
+			nightTests: { duty: getDuty(workbook, 'Night Tests', dailyIndex + 1), icon: '🔭' },
+			fourthLine: { duty: getDuty(workbook, '4th Line', sprintIndex + 1), icon: '🧑‍💼' },
+			demo: { duty: getDuty(workbook, 'Demo', sprintIndex + 1), icon: '📽️' },
+			retro: { duty: getDuty(workbook, 'Retro', sprintIndex + 1), icon: '📣' },
+		},
 	};
 }
 
