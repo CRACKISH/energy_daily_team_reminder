@@ -130,4 +130,4 @@ function buildMessage(duties, sprintNumber, showNextDuties, messageType) {
 	return createMessageObject(sections, messageType);
 }
 
-module.exports = { buildMessage, MessageTypes };
+module.exports = { buildMessage };

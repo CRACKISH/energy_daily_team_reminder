@@ -1,33 +1,29 @@
-const XLSX = require('xlsx');
+const { readDuties } = require('../services/dutiesFileReader');
+const { dutiesFileProviderName } = require('../config');
 
-function getDuty(workbook, sheetName, index) {
-	const sheet = workbook.Sheets[sheetName];
-	const data = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-
+function getDuty(dutiesList, path, index) {
+	const data = dutiesList[path];
 	const names = data.flat().filter(Boolean);
-
 	if (names.length === 0) {
 		return '(no one assigned)';
 	}
-
 	return names[index % names.length];
 }
 
-function loadDuties(filePath, sprintIndex, dailyIndex) {
-	const workbook = XLSX.readFile(filePath);
-
+function loadDuties(sprintIndex, dailyIndex) {
+	const dutiesList = readDuties(dutiesFileProviderName);
 	return {
 		currentDuties: {
-			nightTests: { duty: getDuty(workbook, 'Night Tests', dailyIndex), icon: '🔍' },
-			fourthLine: { duty: getDuty(workbook, '4th Line', sprintIndex), icon: '👨‍💻' },
-			demo: { duty: getDuty(workbook, 'Demo', sprintIndex), icon: '📺' },
-			retro: { duty: getDuty(workbook, 'Retro', sprintIndex), icon: '💬' },
+			nightTests: { duty: getDuty(dutiesList, 'nightTests', dailyIndex), icon: '🔍' },
+			fourthLine: { duty: getDuty(dutiesList, 'fourthLine', sprintIndex), icon: '👨‍💻' },
+			demo: { duty: getDuty(dutiesList, 'demo', sprintIndex), icon: '📺' },
+			retro: { duty: getDuty(dutiesList, 'retro', sprintIndex), icon: '💬' },
 		},
 		futureDuties: {
-			nightTests: { duty: getDuty(workbook, 'Night Tests', dailyIndex + 1), icon: '🔭' },
-			fourthLine: { duty: getDuty(workbook, '4th Line', sprintIndex + 1), icon: '🧑‍💼' },
-			demo: { duty: getDuty(workbook, 'Demo', sprintIndex + 1), icon: '📽️' },
-			retro: { duty: getDuty(workbook, 'Retro', sprintIndex + 1), icon: '📣' },
+			nightTests: { duty: getDuty(dutiesList, 'nightTests', dailyIndex + 1), icon: '🔭' },
+			fourthLine: { duty: getDuty(dutiesList, 'fourthLine', sprintIndex + 1), icon: '🧑‍💼' },
+			demo: { duty: getDuty(dutiesList, 'demo', sprintIndex + 1), icon: '📽️' },
+			retro: { duty: getDuty(dutiesList, 'retro', sprintIndex + 1), icon: '📣' },
 		},
 	};
 }
