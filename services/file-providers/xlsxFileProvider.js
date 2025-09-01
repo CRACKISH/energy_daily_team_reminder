@@ -10,7 +10,7 @@ function getDuties(workbook, sheetName) {
 }
 
 function readDuties() {
-	const filePath = '../../duties.xlsx';
+	const filePath = './duties.xlsx';
 	const workbook = XLSX.readFile(filePath);
 	if (!workbook) {
 		return null;
