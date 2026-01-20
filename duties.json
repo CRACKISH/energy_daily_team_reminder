@@ -10,10 +10,6 @@
 		"Anna Dovzhenko"
 	],
 	"NightTests": [
-		"Andrii Vanikhin",
-		"Anna Dovzhenko",
-		"Olena Mikheyeva",
-		"Dmytro Latyshko",
 		"Anna Dovzhenko",
 		"Dmytro Latyshko",
 		"Olena Mikheyeva",
@@ -29,6 +25,10 @@
 		"Andrii Vanikhin",
 		"Anna Dovzhenko",
 		"Dmytro Latyshko",
-		"Olena Mikheyeva"
+		"Olena Mikheyeva",
+		"Andrii Vanikhin",
+		"Anna Dovzhenko",
+		"Olena Mikheyeva",
+		"Dmytro Latyshko"
 	]
 }
