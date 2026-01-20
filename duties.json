@@ -1,32 +1,33 @@
 ﻿{
 	"4thLine": ["Dmytro Latyshko", "Olena Mikheyeva"],
-	"Demo": ["Maria Donnik", "Dmytro Latyshko", "Olena Mikheyeva", "Andrii Vanikhin"],
+	"Demo": ["Andrii Vanikhin", "Maria Donnik", "Dmytro Latyshko", "Olena Mikheyeva", "Anna Dovzhenko"],
 	"Retro": [
 		"Andrii Volkov",
 		"Dmytro Latyshko",
-		"Olena Mikheyeva",
 		"Andrii Vanikhin",
-		"Maria Donnik"
+		"Maria Donnik",
+		"Olena Mikheyeva",
+		"Anna Dovzhenko"
 	],
 	"NightTests": [
 		"Andrii Vanikhin",
-		"Empty duty",
+		"Anna Dovzhenko",
 		"Olena Mikheyeva",
 		"Dmytro Latyshko",
-		"Empty duty",
+		"Anna Dovzhenko",
 		"Dmytro Latyshko",
 		"Olena Mikheyeva",
 		"Andrii Vanikhin",
 		"Olena Mikheyeva",
 		"Andrii Vanikhin",
-		"Empty duty",
+		"Anna Dovzhenko",
 		"Dmytro Latyshko",
-		"Empty duty",
+		"Anna Dovzhenko",
 		"Olena Mikheyeva",
 		"Andrii Vanikhin",
 		"Dmytro Latyshko",
 		"Andrii Vanikhin",
-		"Empty duty",
+		"Anna Dovzhenko",
 		"Dmytro Latyshko",
 		"Olena Mikheyeva"
 	]
