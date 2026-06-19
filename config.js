@@ -1,6 +1,6 @@
 module.exports = {
-	startSprint: 167,
-	startDate: '2026-03-16',
+	startSprint: 173,
+	startDate: '2026-06-08',
 	dutiesFileProviderName: 'json',
 	messageType: 'MessageCard',
 	webhookUrl:
