@@ -22,6 +22,7 @@ async function sendMessage() {
 		console.log('✅ Message sent to Teams:', response.status);
 	} catch (error) {
 		console.error('❌ Failed to send message:', error.message);
+		console.error('Error details:', error);
 	}
 }
 

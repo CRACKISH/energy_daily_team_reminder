@@ -2,7 +2,7 @@ module.exports = {
 	startSprint: 174,
 	startDate: '2026-06-22',
 	dutiesFileProviderName: 'json',
-	messageType: 'MessageCard',
+	messageType: 'AdaptiveCard',
 	webhookUrl:
-		'https://terrasoftua.webhook.office.com/webhookb2/8a367305-fea1-4881-8e39-b8f304821100@7b5ca2fb-a643-4385-8b39-36934270c716/IncomingWebhook/50f9346b137f46b98d4318a51202742d/7436fc07-f948-4ce2-9214-1c3a15a4a72b/V2fktToig0ygb685zPiYVNqyistQWwXotPGeZym0vBnWw1',
+		'https://default7b5ca2fba64343858b3936934270c7.16.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/3b26c95bf8e345ffb73cddcb11a6cc49/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=xfF3fqwY5kgvK1jXAc5BOSDLhJahfjzxH9APraeLSII',
 };
