@@ -1,52 +1,30 @@
 ﻿{
-	"4thLine": [
-		"Dmytro Latyshko",
-		"Volodymyr Dmytruk",
-		"Anna Dovzhenko",
-		"Olena Mikheyeva"
-	],
-	"Demo": [
-		"Olena Mikheyeva",
-		"Volodymyr Dmytruk",
-		"Andrii Prysiazhnyi",
-		"Anna Dovzhenko",
-		"Andrii Vanikhin",
-		"Dmytro Latyshko"
-	],
+	"4thLine": ["Dmytro Latyshko", "Volodymyr Dmytruk", "Anna Dovzhenko"],
+	"Demo": ["Anna Dovzhenko", "Andrii Vanikhin", "Dmytro Latyshko", "Volodymyr Dmytruk", "Andrii Prysiazhnyi"],
 	"Retro": [
-		"Olena Mikheyeva",
-		"Anna Dovzhenko",
-		"Volodymyr Dmytruk",
 		"Daria Shcherbyna",
 		"Dmytro Latyshko",
 		"Andrii Vanikhin",
-		"Andrii Prysiazhnyi"
+		"Andrii Prysiazhnyi",
+		"Anna Dovzhenko",
+		"Volodymyr Dmytruk"
 	],
 	"NightTests": [
-		"Anna Dovzhenko",
-		"Dmytro Latyshko",
-		"Olena Mikheyeva",
-		"Andrii Vanikhin",
-		"Volodymyr Dmytruk",
-		"Olena Mikheyeva",
-		"Volodymyr Dmytruk",
-		"Andrii Vanikhin",
-		"Anna Dovzhenko",
-		"Dmytro Latyshko",
-		"Anna Dovzhenko",
-		"Olena Mikheyeva",
-		"Volodymyr Dmytruk",
-		"Andrii Vanikhin",
-		"Dmytro Latyshko",
-		"Andrii Vanikhin",
-		"Anna Dovzhenko",
 		"Dmytro Latyshko",
 		"Volodymyr Dmytruk",
-		"Olena Mikheyeva",
-		"Volodymyr Dmytruk",
+		"Anna Dovzhenko",
 		"Andrii Vanikhin",
 		"Anna Dovzhenko",
-		"Olena Mikheyeva",
-		"Dmytro Latyshko"
+		"Andrii Vanikhin",
+		"Volodymyr Dmytruk",
+		"Dmytro Latyshko",
+		"Anna Dovzhenko",
+		"Andrii Vanikhin",
+		"Volodymyr Dmytruk",
+		"Dmytro Latyshko",
+		"Andrii Vanikhin",
+		"Dmytro Latyshko",
+		"Volodymyr Dmytruk",
+		"Anna Dovzhenko"
 	]
 }

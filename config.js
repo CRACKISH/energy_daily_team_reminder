@@ -1,6 +1,6 @@
 module.exports = {
-	startSprint: 180,
-	startDate: '2026-09-14',
+	startSprint: 183,
+	startDate: '2026-10-26',
 	dutiesFileProviderName: 'json',
 	messageType: 'AdaptiveCard',
 	webhookUrl:
